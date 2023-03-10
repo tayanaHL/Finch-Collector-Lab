@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All Finches</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Species</th>
+            <th>Beak Depth</th>
+            <th>Beak Width</th>
+            <th>Island</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for finch in finches %}
+        <tr>
+            <td>{{ finch.species }}</td>
+            <td>{{ finch.beak_depth }}</td>
+            <td>{{ finch.beak_width }}</td>
+            <td>{{ finch.island }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
