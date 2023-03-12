@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+
 
 finches = [
     {'species': 'Galapagos Finch', 'beak_depth': 10, 'beak_width': 5, 'island': 'Galapagos'},
@@ -7,9 +7,3 @@ finches = [
     {'species': 'Tree Finch', 'beak_depth': 9, 'beak_width': 6, 'island': 'Galapagos'},
     {'species': 'Warbler Finch', 'beak_depth': 6, 'beak_width': 2, 'island': 'Galapagos'}
 ]
-
-app = Flask(__name__)
-
-@app.route('/')
-def finch_list():
-    return render_template('finch_list.html', finches=finches)
