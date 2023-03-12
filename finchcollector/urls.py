@@ -21,7 +21,7 @@ from main_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', views.finch_list, name='finch_list'),
+    path('', views.finch_list, name='finch_list'),
     path('about/', views.about, name='about'),
-     path('finch_list/', views.finch_list, name='finch_list')
+    path('finch_list/', views.finch_list, name='finch_list')
 ]
