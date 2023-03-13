@@ -12,11 +12,11 @@ This project was created as part of the Finch Collector Lab and includes parts 1
 - CSS (https://materializecss.com/getting-started.html)
 
 ## Features
-Cards of finches: users can view all finches in the database.
-Add finches: users can add new finches to the database.
-Edit finches: users can edit existing finches in the database.
-Delete finches: users can delete finches from the database.
-Feed finches: users can feed finches in the database
+- Cards of finches: users can view all finches in the database.
+- Add finches: users can add new finches to the database.
+- Edit finches: users can edit existing finches in the database.
+- Delete finches: users can delete finches from the database.
+- Feed finches: users can feed finches in the database
 
 
 ## Conclusion
