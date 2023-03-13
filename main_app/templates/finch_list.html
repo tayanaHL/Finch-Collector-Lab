@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 
 <h1>All Finches</h1>
 
@@ -10,7 +11,8 @@
       <div class="col s12 m4">
         <div class="card">
           <div class="card-image">
-            <img src="/finch.jpeg">
+            <img src="{% static 'finch.jpeg' %}" alt="Finch Image">
+
           </div>
           <div class="card-content">
             <h4> {{ finch.species }}</h4>
