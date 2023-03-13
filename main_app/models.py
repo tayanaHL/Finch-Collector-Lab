@@ -1,6 +1,6 @@
 from django.db import models
 from django import forms
-from main_app.models import Finch
+
 
 # Create your models here.
 

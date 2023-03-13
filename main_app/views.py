@@ -1,30 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from main_app.models import Finch
-
-
-
-
-
-
-
-
-# Create your views here.
-
-# def finch_list(request):
-#     finch_list = [{"species": "Geospiza fortis", "beak_depth": 8.6, "beak_width": 6.2, "island": "Daphne Major"},
-#     {"species": "Geospiza magnirostris", "beak_depth": 10.4, "beak_width": 7.3, "island": "Santa Cruz"},
-#     {"species": "Geospiza parvula", "beak_depth": 9.5, "beak_width": 6.5, "island": "Santa Cruz"},
-#     ] 
-#     data = []
-#     for finch in finch_list:
-#         data.append({
-#             "species": finch["species"],
-#             "beak_depth": finch["beak_depth"],
-#             "beak_width": finch["beak_width"],
-#             "island": finch["island"]
-#         })
-#     return render
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from main_app.models import Finch, FinchForm
 
 
 def about(request):
@@ -38,3 +17,20 @@ def finch_detail(request, finch_id):
     finch = get_object_or_404(Finch, pk=finch_id)
     return render(request, 'finch_detail.html', {'finch': finch})
 
+
+class FinchCreateView(CreateView):
+    model = Finch
+    form_class = FinchForm
+    template_name = 'finch_form.html'
+    success_url = reverse_lazy('finch_list')
+
+class FinchUpdateView(UpdateView):
+    model = Finch
+    form_class = FinchForm
+    template_name = 'finch_form.html'
+    success_url = reverse_lazy('finch_list')
+
+class FinchDeleteView(DeleteView):
+    model = Finch
+    template_name = 'finch_delete.html'
+    success_url = reverse_lazy('finch_list')
