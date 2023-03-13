@@ -2,9 +2,10 @@ from django.db import models
 
 # Create your models here.
 
+
 class Finch(models.Model):
-    name = models.CharField(max_length=100)
-    scientific_name = models.CharField(max_length=100)
-    description = models.TextField()
-    image_url = models.URLField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    species = models.CharField(max_length=100)
+    beak_depth = models.FloatField(default=0.0)
+    beak_width = models.FloatField(default=0.0)
+    island = models.CharField(max_length=100)
+

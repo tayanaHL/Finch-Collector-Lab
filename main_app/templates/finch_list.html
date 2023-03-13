@@ -3,10 +3,18 @@
 
 {% block content %}
 
-
-
-
 <h1>All Finches</h1>
+<ul>
+    {% for finch in finches %}
+        <li><a href="{% url 'finch_detail' finch.id %}">{{ finch.species }} - {{ finch.island }}</a></li>
+    {% empty %}
+        <li>No finches found.</li>
+    {% endfor %}
+</ul>
+
+
+
+<!-- <h1>All Finches</h1>
 <table>
     <thead>
         <tr>
@@ -26,5 +34,5 @@
         </tr>
         {% endfor %}
     </tbody>
-</table>
+</table> -->
 {% endblock %}

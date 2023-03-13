@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ finch.species }}</h1>
+<ul>
+    <li>Beak depth: {{ finch.beak_depth }}</li>
+    <li>Beak width: {{ finch.beak_width }}</li>
+    <li>Island: {{ finch.island }}</li>
+</ul>
+{% endblock %}
