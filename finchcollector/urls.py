@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main_app import views
+from main_app.views import FinchCreateView, FinchUpdateView, FinchDeleteView
 
 
 
 urlpatterns = [
+    path('finch/create/', FinchCreateView.as_view(), name='finch_create'),
+    path('finch/<int:pk>/update/', FinchUpdateView.as_view(), name='finch_update'),
+    path('finch/<int:pk>/delete/', FinchDeleteView.as_view(), name='finch_delete'),
     path('admin/', admin.site.urls),
     path('', views.finch_list, name='finch_list'),
     path('about/', views.about, name='about'),

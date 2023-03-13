@@ -1,4 +1,6 @@
 from django.db import models
+from django import forms
+from main_app.models import Finch
 
 # Create your models here.
 
@@ -9,3 +11,7 @@ class Finch(models.Model):
     beak_width = models.FloatField(default=0.0)
     island = models.CharField(max_length=100)
 
+class FinchForm(forms.ModelForm):
+    class Meta:
+        model = Finch
+        fields = ['species', 'beak_depth', 'beak_width', 'island']

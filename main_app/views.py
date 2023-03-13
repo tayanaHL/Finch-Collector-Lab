@@ -5,6 +5,10 @@ from main_app.models import Finch
 
 
 
+
+
+
+
 # Create your views here.
 
 # def finch_list(request):
@@ -30,7 +34,7 @@ def finch_list(request):
     finches = Finch.objects.all()
     return render(request, 'finch_list.html', {'finches': finches})
 
-
 def finch_detail(request, finch_id):
     finch = get_object_or_404(Finch, pk=finch_id)
     return render(request, 'finch_detail.html', {'finch': finch})
+
