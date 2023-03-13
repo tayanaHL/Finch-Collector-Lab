@@ -6,10 +6,10 @@ Finch Collector is a web application that allows users to keep track of differen
 This project was created as part of the Finch Collector Lab and includes parts 1 through 5 of the lab.
 
 ## Technologies Used
-Python
-Django
-HTML
-CSS
+- Python
+- Django
+- HTML
+- CSS (https://materializecss.com/getting-started.html)
 
 ## Features
 Cards of finches: users can view all finches in the database.
