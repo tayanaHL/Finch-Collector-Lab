@@ -1,28 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Toys</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for toy in toys %}
-                <tr>
-                    <td>{{ toy.name }}</td>
-                    <td>{{ toy.color }}</td>
-                    <td>{{ toy.size }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="3">No toys found.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'toy_create' %}" class="btn btn-primary mb-3">Add Toy</a>
+  <h1>Toys</h1>
+  <ul>
+    {% for toy in toys %}
+      <li>{{ toy.name }} - {{ toy.description }}</li>
+    {% endfor %}
+  </ul>
+  <h2>Add a Toy</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+  </form>
 {% endblock %}

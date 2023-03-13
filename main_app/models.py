@@ -16,6 +16,11 @@ def __str__(self):
 def feedings(self):
         return Feeding.objects.filter(finch=self).order_by('-date')
 
+class Toy(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    finches = models.ManyToManyField(Finch, related_name='toys')
+
 class FinchForm(forms.ModelForm):
     class Meta:
         model = Finch
@@ -29,7 +34,3 @@ class Feeding(models.Model):
 def __str__(self):
         return f"{self.date} - {self.finch.species}"
 
-class Toy(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    finches = models.ManyToManyField(Finch, related_name='toys')
