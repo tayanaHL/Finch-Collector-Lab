@@ -1,8 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from main_app.models import Finch
-from django.shortcuts import render
-from main_app.views import finch_detail, finch_list
 
 
 
@@ -27,6 +25,11 @@ from main_app.views import finch_detail, finch_list
 
 def about(request):
     return render(request, 'about.html')
+
+def finch_list(request):
+    finches = Finch.objects.all()
+    return render(request, 'finch_list.html', {'finches': finches})
+
 
 def finch_detail(request, finch_id):
     finch = get_object_or_404(Finch, pk=finch_id)

@@ -1,38 +1,29 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 
 <h1>All Finches</h1>
-<ul>
+
+{% if finches %}
+  <div class="row">
     {% for finch in finches %}
-        <li><a href="{% url 'finch_detail' finch.id %}">{{ finch.species }} - {{ finch.island }}</a></li>
-    {% empty %}
-        <li>No finches found.</li>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="/finch.jpeg">
+          </div>
+          <div class="card-content">
+            <h4> {{ finch.species }}</h4>
+          </div>
+          <div class="card-action">
+            <a href="{% url 'finch_detail' finch.id %}">View Details</a>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-</ul>
+  </div>
+{% else %}
+  <p>No finches found.</p>
+{% endif %}
 
-
-
-<!-- <h1>All Finches</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Species</th>
-            <th>Beak Depth</th>
-            <th>Beak Width</th>
-            <th>Island</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for finch in finches %}
-        <tr>
-            <td>{{ finch.species }}</td>
-            <td>{{ finch.beak_depth }}</td>
-            <td>{{ finch.beak_width }}</td>
-            <td>{{ finch.island }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table> -->
 {% endblock %}
