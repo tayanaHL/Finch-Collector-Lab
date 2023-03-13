@@ -1,10 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ finch.species }}</h1>
-<ul>
-    <li>Beak depth: {{ finch.beak_depth }}</li>
-    <li>Beak width: {{ finch.beak_width }}</li>
-    <li>Island: {{ finch.island }}</li>
-</ul>
+<h2>Add Feeding</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Feeding</button>
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for feeding in feedings %}
+      <tr>
+        <td>{{ feeding.date }}</td>
+        <td>{{ feeding.quantity }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="2">No feedings yet.</td>
+      </tr>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'main_app:toy_list' %}" class="btn btn-primary">Add Toy</a>
+  {% else %}
+    <p>No toys for this finch yet.</p>
+  {% endif %}
+  </tbody>
+</table>
 {% endblock %}

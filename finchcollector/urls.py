@@ -30,6 +30,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('finches/', views.finch_list, name='finch_list'),
     path('finches/<int:finch_id>/', views.finch_detail, name='finch_detail'),
-    
-
+     path('toys/', views.ToyListView.as_view(), name='toy_list'),
+    path('toys/add/', views.ToyCreateView.as_view(), name='toy_add'),
+    path('finches/<int:pk>/', views.FinchDetailView.as_view(), name='finch_detail')
 ]
